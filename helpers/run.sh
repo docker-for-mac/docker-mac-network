@@ -14,6 +14,8 @@ if [ ! -f "/local/$dest" ]; then
     	s|localhost 1194|localhost 13194|;
 	s|redirect-gateway.*|route 172.16.0.0 255.240.0.0|;
     ' > "/local/$dest"
+    echo 'route 172.16.238.0 255.255.255.0' | tee -a "/local/$dest"
+    echo 'comp-lzo no' | tee -a "/local/$dest"
 fi
 
 # Workaround for https://github.com/wojas/docker-mac-network/issues/6
